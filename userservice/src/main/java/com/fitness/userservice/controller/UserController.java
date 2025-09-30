@@ -1,22 +1,21 @@
 package com.fitness.userservice.controller;
 
+import com.fitness.userservice.dto.UserResponse;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/users")
 public class UserController {
 
     @GetMapping("/{userId}")
-    public ResponseEntity<> getUserProfile() {
-        return "";
+    public ResponseEntity<UserResponse> getUserProfile(@PathVariable String userId) {
+        return ResponseEntity.ok(userService.getUserProfile(userId));
     }
 
     @GetMapping("/register")
-    public ResponseEntity<> register() {
-        return "";
+    public ResponseEntity<> register(@RequestBody RegisterRequest request) {
+        return ResponseEntity.ok(userService.getUserProfile(userId));
     }
 
 }
